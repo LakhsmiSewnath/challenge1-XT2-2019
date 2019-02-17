@@ -1,14 +1,233 @@
-body{
+/*Dit geld voor de gehele body van de pagina */
+body {
     margin: 0px;
     padding: 0px;
-    background-color: black;
+    background-color: #CCCCCC;
+    color: #F2F2F2;
 }
- 
-.ldBar{position:relative;}.ldBar.label-center > .ldBar-label{position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);text-shadow:0 0 3px #fff}.ldBar-label:after{content:"%";display:inline}.ldBar.no-percent .ldBar-label:after{content:""}
 
 
 @media only screen and (min-width: 360px) {
-  body {
-    background-color: yellow;
+    /*Dit geld voor alle secties  van de pagina */
+  .alle-secties {
+    background-color: #1B1B1B;
+    margin-left: 7%;
+    margin-right: 7%;
+    box-shadow: 5px 5px 5px 0px #888888;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  /*Dit is de styling van een kop*/
+  h2 {
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+    padding-top: 10%;
+    z-index: 2;
+  }
+
+  /*Dit is de styling van de tekst in een paragraaf*/
+  p {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+
+  /*Dit is styling van de header van de pagina*/
+  #grid-item-header {
+    background-color: #1B1B1B;
+    box-shadow: 4px 4px 4px 0px #888888;
+    grid-area: header;
+    display: flex;
+  }
+
+
+  /*Dit is het logo van spaceX*/
+  .logo {
+    align-self: center;
+    margin: auto;
+  }
+
+  /*Dit hoort bij de styling van de sectie met als kop brandstof*/
+  #grid-item-brandstof {
+    grid-area: brandstof;
+  }
+
+  /*Dit hoort bij de styling van de sectie met als kop zwaartekracht*/
+  #grid-item-zwaartekracht {
+    grid-area: zwaartekracht;
+    display: flex;
+    justify-content: center;
+  }
+
+  /*Dit is de div met hierin de columnchart dat de zwaartekracht dat hoort bij het ruimteschip, mars of de aarde laat zien */
+  #columnchart_div { 
+    z-index: 1;
+    align-self: flex-start;
+    position: absolute;
+  }
+
+  /*Dit is de div waarin de iconen zich bevinden*/
+  .iconen-columnchart {
+    width: 55%;
+    margin-left: 15%;
+    align-self: center;
+    margin-top: 10%;
+    display: flex;
+    z-index: 10;
+    margin-bottom: 10%;
+  }
+
+  /*Dit is de styling van het icoon van een ruimteschip*/
+  .ruimteschip {
+    min-width: 50px;
+    max-width: 70px;
+    min-height: 50px;
+    max-height: 70px;
+    align-self: flex-start;
+  }
+
+  /*Dit is de styling van het icoon van de planeet mars*/
+  .mars {
+    min-width: 50px;
+    max-width: 70px;
+    min-height: 50px;
+    max-height: 70px;
+    align-self: center;
+    margin-left: 15%;
+  }
+
+
+  /*Dit is de styling van het icoon van de aarde*/
+  .aarde {
+    min-width: 50px;
+    max-width: 70px;
+    min-height: 50px;
+    max-height: 70px;
+    align-self: flex-end;
+    margin-left: 15%;
+  }
+
+  /*Dit hoort bij de styling van de sectie met als kop Afstand afgelegf over tijd*/
+  #grid-item-afstand-afgelegd-over-tijd {
+    grid-area: afstand;
+    margin-bottom: 7.5%;
+  }
+
+  /*Dit is de ccs grid waarmee ik de layout van mijn pagina heb gemaakt*/
+  #grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.15fr 0.80fr 1.10fr 0.90fr;
+    grid-row-gap: 1.5%;
+    grid-template-areas: 
+      "header"
+      "brandstof"
+      "zwaartekracht"
+      "afstand";
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /*Dit is de ccs grid waarmee ik de layout van mijn pagina heb gemaakt*/
+  #grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+    grid-template-rows: 7% 1fr 1fr;
+    grid-row-gap: 2.8%;
+    grid-column-gap: 0.5%;
+    grid-template-areas: 
+      "header header"
+      "brandstof zwaartekracht"
+      "afstand .";
+  }
+
+  #grid-item-header{
+    grid-column: span 2;
+  }
+
+  /*Dit hoort bij de styling van de sectie met als kop brandstof*/
+  #grid-item-brandstof {
+    grid-area: brandstof;
+    margin-right: 0%;
+    height: 75%;
+  }
+
+ 
+
+   /*Dit is de div waarin de iconen zich bevinden*/
+  .iconen-columnchart {
+    margin-bottom: 10%;
+  }
+
+
+  /*Dit hoort bij de styling van de sectie met als kop Afstand afgelegf over tijd*/
+  #grid-item-afstand-afgelegd-over-tijd {
+    margin-right: 0%;
+  }
+
+  /*Dit is de styling van een kop*/
+  h2 {
+    font-size: 20px;
+  }
+
+  /*Dit is de styling van een paragraaf*/
+  p {
+    font-size: 18px;
+  }
+
+}
+
+
+
+@media only screen and (min-width: 1366px) {
+  #grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 12% 1fr;
+    grid-row-gap: 4%;
+    grid-column-gap: 0%;
+    grid-template-areas: 
+      "header header header"
+      "brandstof zwaartekracht afstand";
+  }
+
+  #grid-item-header{
+    grid-column: span 3;
+  }
+
+
+  /*Dit hoort bij de styling van de sectie met als kop Afstand afgelegf over tijd*/
+  #grid-item-afstand-afgelegd-over-tijd {
+    grid-area: afstand;
+    margin-right: 7%;
+    margin-left: 0%;
+  }
+
+  /*Dit is de styling van een kop*/
+  h2 {
+    font-size: 22px;
+  }
+
+  /*Dit is de styling van een paragraaf*/
+  p {
+    font-size: 20px;
+  }
+
+}
+
+
+@media only screen and (min-width: 1920px) {
+    /*Dit is de styling van een kop*/
+  h2 {
+    font-size: 24px;
+  }
+
+  /*Dit is de styling van een paragraaf*/
+  p {
+    font-size: 22px;
   }
 }

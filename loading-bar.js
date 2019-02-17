@@ -41,7 +41,7 @@ wrap = function(content){
     },
     stripe: function(c1, c2, dur){
       var ret, i;
-      c1 == null && (c1 = 'red');
+      c1 == null && (c1 = '#b4b4b4');
       c2 == null && (c2 = '#e6e6e6');
       dur == null && (dur = 1);
       ret = [this.head("0 0 100 100")];
@@ -784,7 +784,7 @@ out$.presets = presets = {
     "type": 'fill',
     "path": 'M50 10A40 40 0 0 1 50 90A40 40 0 0 1 50 10',
     "fill-dir": 'btt',
-    "fill": 'data:ldbar/res,bubble(#39d,#cef)',
+    "fill": 'data:ldbar/res,bubble(#000000,#cef)',
     "pattern-size": "150",
     "fill-background": '#ddd',
     "fill-background-extrude": 2,
