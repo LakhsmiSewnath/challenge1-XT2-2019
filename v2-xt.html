@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--Load the AJAX API-->
+        <script type="text/javascript" src="loading-bar.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+
+          // Load the Visualization API and the corechart package.
+          google.charts.load('current', {'packages':['corechart']});
+
+
+
+          // Set a callback to run when the Google Visualization API is loaded.
+          google.charts.setOnLoadCallback(drawColumnChart);
+
+          google.charts.setOnLoadCallback(drawLineChart);
+      
+
+          // Callback that creates and populates a data table,
+          // instantiates the pie chart, passes in the data and
+          // draws it.
+          function drawColumnChart() {
+
+            // Create the data table.
+          
+
+            var data = google.visualization.arrayToDataTable([
+               ['Element', 'Zwaartekracht', { role: 'style' }],
+               ['Ruimteschip', 0.5, '#33FFFF'],            // De verschillende kolommen van de columnchart
+               ['Mars', 3.8, '#33FFFF'],            // 
+               ['Aarde', 9.8, '#33FFFF']
+            ]);
+
+            // De styling van de columnchart 
+            var options = { legend: { 
+                              position: 'none'
+                            },
+                           'width':'100%',
+                           'height':410,
+                           'backgroundColor':'#1B1B1B',
+                           'fontName':'Open Sans',
+                              vAxis: { 
+                                title: 'Zwaartekracht(m/s2)',
+                                titleTextStyle: {
+                                  color: '#F2F2F2',
+                                  fontSize: 16
+                                },
+                                textStyle: {
+                                  color: '#F2F2F2'
+                                }
+                               },
+                               chartArea: {
+                                 top: 40,
+                                 height: 360,
+                                 left: 110
+                               }
+                          };
+          
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.ColumnChart(document.getElementById('columnchart-div'));
+            chart.draw(data, options);
+          }
+          
+          // Callback that draws the pie chart for Anthony's pizza.
+          function drawLineChart() {
+
+               var data = google.visualization.arrayToDataTable([
+              ['Maand', ''],
+              ['1',  8,],
+              ['2',  14],
+              ['3',  21],
+              ['4',  30],
+              ['5',  46],
+              ['6',  55]
+            ]);
+
+            // De styling van de lineChart
+            var options = {
+                             'width':'100%',
+                             'height':470,
+                             'backgroundColor':'#1B1B1B',
+                             'fontName':'Open Sans',
+                             'lineWidth':3,
+                             series: {
+                                0: { color: '#FF33FF' }
+                              },
+                             legend: { 
+                                position: 'none'
+                              },
+                              hAxis: { 
+                                title: 'Tijd(maanden)',
+                                titleTextStyle: {
+                                  color: '#F2F2F2',
+                                  fontSize: 16
+                                },
+                                textStyle: {
+                                  color: '#F2F2F2'
+                                }
+                              },
+                              vAxis: { 
+                                title: 'Afstand(miljoen km)',
+                                titleTextStyle: {
+                                  color: '#F2F2F2',
+                                  fontSize: 16
+                                },
+                                textStyle: {
+                                  color: '#F2F2F2'
+                                }
+                              },
+                              chartArea: {
+                                 top: 40,
+                                 height: 320,
+                                 left: 110
+                              }
+                          };
+
+
+
+            var chart = new google.visualization.LineChart(document.getElementById('linechart-div'));
+
+            chart.draw(data, options);
+         }
+
+         $(window).resize(function(){
+                          drawColumnChart();
+                          drawLineChart();
+         });
+        </script>
+       
+        <!--Dit zijn de fonts die ik heb gebruikt voor mijn dashboard-->
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <!--Dit zijn de links naar de stylesheets die ik heb gebruikt-->
+        <link rel="stylesheet" type="text/css" href="styles/XT2-challenge1.css">
+        <link rel="stylesheet" type="text/css" href="styles/loading-bar.css"/>
+    </head>
+    <body>
+    <!--Dit is de grid-container dat ik heb gebruikt voor de layout van mijn dashboard-->
+    <div id="grid-container">
+     <!--Dit is de header van mijn dashboard-->
+      <header id="grid-item-header">
+        <!--Dit is de logo van mijn dashboard-->
+        <picture class="logo">
+           <source media="(max-width: 767px)" srcset="images/spacexlogo360w.png" />
+         <source media="(min-width: 768px) and (max-width: 1365px)"
+         srcset="images/spacexlogo768w.png"/>
+         <source media="(min-width: 1366px) and (max-width: 1919px)" srcset="images/spacexlogo1366w.png" />
+         <source media="(min-width: 1920px)" srcset="images/spacexlogo1920w.png" />
+         <img class="" src="images/spacexlogo1920w.svg" alt="De logo van Spacex" />
+        </picture>
+      </header>
+      
+      <!--Dit is de sectie op de pagina waarin het percentage brandstof wordt laten zien-->
+      <section id="grid-item-brandstof" class="alle-secties">
+        <h2>BRANDSTOF</h2>
+        <div class="ldBar label-center" 
+          style="width:70%;height:70%;" 
+          data-value="65" 
+          data-preset="bubble" 
+          data-pattern-size="150" 
+          data-fill="data:ldbar/res,bubble(#F7931E,#CC741D,40,50)" 
+          data-fill-background="#5B3B19">
+        </div>
+        </section>
+
+       <!--Dit is de sectie op de pagina waarin de zwaartekracht in het ruimteschip, op mars en op aarde wordt laten zien-->
+      <section id="grid-item-zwaartekracht" class="alle-secties">
+        <h2>ZWAARTEKRACHT</h2>
+         <!--Dit is de columnchart-->
+        <div id="columnchart-div"></div>
+        <div class="iconen-columnchart">
+          <picture class="ruimteschip">
+            <img src="images/rocket-ship.svg" alt="Het ruimteschipicoon dat hoort bij de columnchart"/>
+          </picture>
+          <picture class="mars">
+            <img src="images/mars.svg" alt="Het icoon van planeet Mars dat hoort bij de columnchart"/>
+          </picture>
+          <picture class="aarde">
+            <img src="images/planet-earth.svg" alt="He icoon van de aarde dat hoort bij de columnchart"/>
+          </picture>
+        </div>
+      </section>
+
+       <!--Dit is de sectie op de pagina waarin de afstand(in kilometers) dat is afgelegd over tijd (in maanden) wordt laten zien-->
+      <section id="grid-item-afstand-afgelegd-over-tijd" class="alle-secties">
+        <h2>AFSTAND AFGELEGD OVER TIJD</h2>
+         <!--Dit is de linechart-->
+        <div id="linechart-div"></div>
+      </section>
+    </div>
+  </body>
+</html>
