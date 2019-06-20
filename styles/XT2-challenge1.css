@@ -8,6 +8,21 @@ body {
 
 
 @media only screen and (min-width: 360px) {
+
+  /*Dit is de ccs grid waarmee ik de layout van mijn pagina heb gemaakt*/
+  #grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.15fr 0.80fr 1.10fr 0.90fr;
+    grid-row-gap: 1.5%;
+    grid-template-areas: 
+      "header"
+      "brandstof"
+      "zwaartekracht"
+      "afstand";
+  }
+
     /*Dit geld voor alle secties  van de pagina */
   .alle-secties {
     background-color: #1B1B1B;
@@ -114,19 +129,7 @@ body {
     margin-bottom: 7.5%;
   }
 
-  /*Dit is de ccs grid waarmee ik de layout van mijn pagina heb gemaakt*/
-  #grid-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.15fr 0.80fr 1.10fr 0.90fr;
-    grid-row-gap: 1.5%;
-    grid-template-areas: 
-      "header"
-      "brandstof"
-      "zwaartekracht"
-      "afstand";
-  }
+  
 }
 
 @media only screen and (min-width: 768px) {
@@ -188,7 +191,7 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 12% 1fr;
+    grid-template-rows: 15% 1fr;
     grid-row-gap: 4%;
     grid-column-gap: 0%;
     grid-template-areas: 
@@ -206,6 +209,7 @@ body {
     grid-area: afstand;
     margin-right: 7%;
     margin-left: 0%;
+    margin-top: 0%;
     height: 95%;
   }
 
@@ -232,4 +236,5 @@ body {
   p {
     font-size: 22px;
   }
+
 }
